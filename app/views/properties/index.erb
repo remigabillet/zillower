@@ -1,5 +1,6 @@
 <ul>
-
+  <%= link_to 'Import more properties', import_more_properties_path %>
+  
   <% @properties.each do |property| %>
     <li>
       <%= link_to(property.url, property.url) %><br>

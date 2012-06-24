@@ -4,4 +4,9 @@ class PropertiesController < ActionController::Base
     @properties = ZillowProperty.order("price/rentzestimate").all
   end
   
+  def import_more
+    ZillowProperty.import_more_properties
+    redirect_to :action => 'index'
+  end
+  
 end

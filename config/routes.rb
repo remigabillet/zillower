@@ -1,7 +1,12 @@
 Zillower::Application.routes.draw do
 
   root :to => "properties#index", :as => :home
-  resources :properties
+  resources :properties do 
+    collection do
+      get :import_more
+    end
+  end
+  
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
