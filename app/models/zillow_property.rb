@@ -30,7 +30,7 @@ class ZillowProperty < ActiveRecord::Base
     doc = Hpricot(resp.body)
     elements = doc/'//*[@id="search-results"]/li'
     elements.each do |li|
-      zpid = li.attributes['id'].gsub('zpid_','').to_i
+      zpid = li.attributes['id'].gsub('zpid_','')
 
       price_el = li/'//*[@class="price"]'
       price = price_el.first.to_plain_text.gsub(/\$|,/,'').to_i
@@ -61,7 +61,7 @@ class ZillowProperty < ActiveRecord::Base
       # :bedrooms => xml.xpath('//bedrooms').first.text
     })
     
-    m = find_or_create_by_zpid(zpid)
+    m = find_or_create_by_zpid(zpid.to_s)
     m.update_attributes(details)
 
     details
