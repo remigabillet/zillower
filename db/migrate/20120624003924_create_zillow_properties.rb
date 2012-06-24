@@ -1,6 +1,7 @@
 class CreateZillowProperties < ActiveRecord::Migration
   def change
     create_table :zillow_properties do |t|
+      t.string  :zpid
       t.string  :address
       t.string  :url
       t.integer :price
@@ -9,6 +10,7 @@ class CreateZillowProperties < ActiveRecord::Migration
       t.integer :bedrooms
       t.float :bathrooms
       t.string :type
+      t.text :info
       
       t.timestamps
     end

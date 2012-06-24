@@ -1,0 +1,13 @@
+<ul>
+
+  <% @properties.each do |property| %>
+    <li>
+      <%= link_to(property.url, property.url) %><br>
+      Price: <%= number_with_delimiter(property.price) %><br>
+      RentZestimate: $<%= number_with_delimiter(property.rentzestimate) %><br>
+      Zestimate: $<%= number_with_delimiter(property.zestimate) %><br>
+      Price / Rent: <%= (property.price.to_f / property.rentzestimate / 12).round(1) %>
+    </li>
+  <% end %>
+
+</ul>
