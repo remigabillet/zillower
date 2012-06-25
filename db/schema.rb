@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120624003924) do
+ActiveRecord::Schema.define(:version => 20120625010050) do
 
   create_table "zillow_properties", :force => true do |t|
     t.string   "address"
@@ -21,9 +21,13 @@ ActiveRecord::Schema.define(:version => 20120624003924) do
     t.integer  "rentzestimate"
     t.integer  "bedrooms"
     t.float    "bathrooms"
-    t.string   "type"
+    t.string   "property_type"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.string   "zpid"
+    t.text     "info"
+    t.integer  "sq_ft"
+    t.string   "photo_url"
   end
 
 end
